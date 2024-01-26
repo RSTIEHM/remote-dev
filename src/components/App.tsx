@@ -12,13 +12,20 @@ import ResultsCount from "./ResultsCount";
 import SortingControls from "./SortingControls";
 import JobList from "./JobList";
 import PaginationControls from "./PaginationControls";
-import { useActiveID, useJobItem, useJobItems } from "../lib/hooks";
+import { useDebounce, useJobItems } from "../lib/hooks";
 
 function App() {
   const [searchText, setSearchText] = useState("");
-  const [jobItems, isLoading] = useJobItems(searchText);
-  const activeID = useActiveID();
-  const selectedJob = useJobItem(activeID);
+  const deBouncedValue = useDebounce(searchText, 300);
+  const { jobItemsSliced, isLoading, totalNumberOfResults } =
+    useJobItems(deBouncedValue);
+
+  // useEffect(() => {
+  //   const timerID = setTimeout(() => {
+  //     setDebouncedSearchText(searchText);
+  //   }, 1000);
+  //   return () => clearTimeout(timerID);
+  // }, [searchText]);
 
   return (
     <>
@@ -33,13 +40,13 @@ function App() {
       <Container>
         <Sidebar>
           <SidebarTop>
-            <ResultsCount />
+            <ResultsCount totalNumberOfResults={totalNumberOfResults} />
             <SortingControls />
           </SidebarTop>
-          <JobList isLoading={isLoading} jobItems={jobItems} />
+          <JobList isLoading={isLoading} jobItems={jobItemsSliced} />
           <PaginationControls />
         </Sidebar>
-        <JobItemContent selectedJob={selectedJob} />
+        <JobItemContent />
       </Container>
       <Footer />
     </>
