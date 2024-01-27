@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Background from "./Background";
 import Container from "./Container";
 import Footer from "./Footer";
@@ -17,16 +17,9 @@ import { useDebounce, useJobItems } from "../lib/hooks";
 function App() {
   const [searchText, setSearchText] = useState("");
   const deBouncedValue = useDebounce(searchText, 300);
-  const { jobItemsSliced, isLoading, totalNumberOfResults } =
-    useJobItems(deBouncedValue);
-
-  // useEffect(() => {
-  //   const timerID = setTimeout(() => {
-  //     setDebouncedSearchText(searchText);
-  //   }, 1000);
-  //   return () => clearTimeout(timerID);
-  // }, [searchText]);
-
+  const { jobItems, isLoading } = useJobItems(deBouncedValue);
+  const jobItemsSliced = jobItems?.slice(0, 7) || [];
+  const totalNumberOfResults = jobItems?.length || 0;
   return (
     <>
       <Background />
