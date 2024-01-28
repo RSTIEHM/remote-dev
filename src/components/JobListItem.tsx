@@ -1,6 +1,7 @@
 import { JobItem } from "../lib/types";
 import BookmarkIcon from "./BookmarkIcon";
 
+// PROP TYPE ======
 type JobListItemsProps = {
   jobItem: JobItem;
   isActive: boolean;

@@ -3,6 +3,7 @@ import { JobItem } from "../lib/types";
 import JobListItem from "./JobListItem";
 import Spinner from "./Spinner";
 
+// PROP TYPE ======
 type JobListProps = {
   jobItems: JobItem[];
   isLoading: boolean;
