@@ -24,9 +24,8 @@ function App() {
   const { jobItems, isLoading } = useJobItems(deBouncedValue);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<SortBy>("relevant");
-  console.log(sortBy);
-  // ================= DERIVED STATE ===========================
 
+  // ================= DERIVED STATE ===========================
   const jobItemsSorted = [...(jobItems || [])].sort((a, b) => {
     if (sortBy === "relevant") {
       return b.relevanceScore - a.relevanceScore;
@@ -41,8 +40,8 @@ function App() {
     ) || [];
   const totalNumberOfResults = jobItems?.length || 0;
   const totalNumberOfPages = totalNumberOfResults / RESULTS_PER_PAGE;
+  // ================ EVENT HANDLERS / ACTIONS ==================
 
-  // ================ EVENT HANDLERS / ACTION ========
   const handleChangePage = (direction: PageDirection) => {
     if (direction === "next") {
       setCurrentPage((prev) => prev + 1);
