@@ -16,6 +16,7 @@ import { useDebounce, useJobItems } from "../lib/hooks";
 import { Toaster } from "react-hot-toast";
 import { RESULTS_PER_PAGE } from "../lib/constants";
 import { PageDirection, SortBy } from "../lib/types";
+import ButtonContainer from "./ButtonContainer";
 
 function App() {
   // ================== STATE =========

@@ -1193,3 +1193,20 @@ body::-webkit-scrollbar {
     transform: translateX(-50%);
   }
 }
+
+.button-container {
+  width: 200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.btn-select {
+  background-color: white;
+  padding: 0.5rem 1rem;
+}
+
+.btn-select.active {
+  background-color: orange;
+}
