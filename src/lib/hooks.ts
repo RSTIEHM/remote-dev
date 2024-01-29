@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { JobItem, JobItemExpanded } from "./types";
 import { BASE_API_URL } from "./constants";
-import { useQuery } from "@tanstack/react-query";
+import { useQueries, useQuery } from "@tanstack/react-query";
 
 import { handleError } from "./util";
+import { BookmarksContext } from "../contexts/BoomarksContextProvider";
 
 type JobItemApiResponse = {
   public: true;
@@ -40,7 +41,7 @@ const fetchJobItems = async (
 
 // =========================================================
 
-export function useJobItems(searchText: string) {
+export function useSearchQuery(searchText: string) {
   const { data, isInitialLoading } = useQuery(
     ["job-items", searchText],
     () => fetchJobItems(searchText),
@@ -76,6 +77,31 @@ export function useJobItem(id: number | null) {
   const isLoading = isInitialLoading;
   return { jobItem, isLoading } as const;
 }
+
+export function useJobItems(ids: number[]) {
+  const results = useQueries({
+    queries: ids.map((id) => ({
+      queryKey: ["job-item", id],
+      queryFn: () => fetchJobItem(id),
+      staleTime: 1000 * 60 * 60,
+      refetchOnWindowFocus: false,
+      retry: false,
+      enabled: Boolean(id),
+      onError: handleError,
+    })),
+  });
+  const jobItems = results
+    .map((result) => result.data?.jobItem)
+    .filter((jobItem) => {
+      return jobItem !== undefined;
+    });
+  const isLoading = results.some((result) => result.isLoading);
+  return {
+    jobItems,
+    isLoading,
+  };
+}
+// ===========================================
 
 export function useActiveID() {
   const [activeID, setActiveID] = useState<number | null>(null);
@@ -117,4 +143,16 @@ export function useLocalStorage<T>(
   }, [value, key]);
 
   return [value, setValue] as const;
+}
+
+// ====================================
+export function useBookmarksContext() {
+  const context = useContext(BookmarksContext);
+
+  if (!context) {
+    throw new Error(
+      "useBookmarksContext must be used by a BoorksContextProvider"
+    );
+  }
+  return context;
 }
