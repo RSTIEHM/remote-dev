@@ -1,12 +1,19 @@
-import { createContext, useContext } from "react";
+import { createContext } from "react";
 import { useJobItems, useLocalStorage } from "../lib/hooks";
+import { JobItemExpanded } from "../lib/types";
 
+// TYPE CONTEXT ====================================
 type BookmarksContext = {
   bookmarkIds: number[];
   handleToggleBookmark: (id: number) => void;
+  bookmarkedJobItems: JobItemExpanded[];
+  isLoading: boolean;
 };
+
+// CREATE CONTEXT =============================
 export const BookmarksContext = createContext<BookmarksContext | null>(null);
 
+// PROVIDER ===============================
 export default function BoomarksContextProvider({
   children,
 }: {

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Spacious Apartment in Brooklyn",
+    "state": "NY",
+    "rating": 4
+  },
+  {
+    "id": 2,
+    "title": "Luxury Condo with City Views",
+    "state": "CA",
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "title": "Cozy Townhouse in Boston",
+    "state": "MA",
+    "rating": 3
+  },
+  {
+    "id": 4,
+    "title": "Modern Loft in San Francisco",
+    "state": "CA",
+    "rating": 4
+  },
+  {
+    "id": 5,
+    "title": "Charming Cottage in Vermont",
+    "state": "VT",
+    "rating": 5
+  },
+  {
+    "id": 6,
+    "title": "Sunny Beach House in Florida",
+    "state": "FL",
+    "rating": 4
+  },
+  {
+    "id": 7,
+    "title": "Historic Brownstone in Philadelphia",
+    "state": "PA",
+    "rating": 5
+  },
+  {
+    "id": 8,
+    "title": "Mountain Retreat in Colorado",
+    "state": "CO",
+    "rating": 4
+  },
+  {
+    "id": 9,
+    "title": "Downtown Penthouse in Chicago",
+    "state": "IL",
+    "rating": 5
+  },
+  {
+    "id": 10,
+    "title": "Rustic Cabin in Montana",
+    "state": "MT",
+    "rating": 3
+  },
+  {
+    "id": 11,
+    "title": "Waterfront Villa in Miami",
+    "state": "FL",
+    "rating": 5
+  },
+  {
+    "id": 12,
+    "title": "Contemporary Townhome in Seattle",
+    "state": "WA",
+    "rating": 4
+  },
+  {
+    "id": 13,
+    "title": "Elegant Mansion in Beverly Hills",
+    "state": "CA",
+    "rating": 5
+  },
+  {
+    "id": 14,
+    "title": "Quaint Farmhouse in Iowa",
+    "state": "IA",
+    "rating": 3
+  },
+  {
+    "id": 15,
+    "title": "Urban Studio in New Orleans",
+    "state": "LA",
+    "rating": 4
+  },
+  {
+    "id": 16,
+    "title": "Lakefront Retreat in Michigan",
+    "state": "MI",
+    "rating": 5
+  },
+  {
+    "id": 17,
+    "title": "Ski Chalet in Aspen",
+    "state": "CO",
+    "rating": 4
+  },
+  {
+    "id": 18,
+    "title": "Beachfront Bungalow in Hawaii",
+    "state": "HI",
+    "rating": 5
+  },
+  {
+    "id": 19,
+    "title": "Suburban Home in Texas",
+    "state": "TX",
+    "rating": 3
+  },
+  {
+    "id": 20,
+    "title": "City View Apartment in Atlanta",
+    "state": "GA",
+    "rating": 4
+  }
+]

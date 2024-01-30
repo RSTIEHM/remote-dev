@@ -24,6 +24,7 @@ const fetchJobItem = async (id: number): Promise<JobItemApiResponse> => {
     throw new Error(errorData.description);
   }
   const data = await response.json();
+  console.log(data, "ITEM");
   return data;
 };
 
@@ -36,6 +37,7 @@ const fetchJobItems = async (
     throw new Error(errorData.description);
   }
   const data = await response.json();
+  console.table(data.jobItems);
   return data;
 };
 
@@ -92,9 +94,10 @@ export function useJobItems(ids: number[]) {
   });
   const jobItems = results
     .map((result) => result.data?.jobItem)
-    .filter((jobItem) => {
-      return jobItem !== undefined;
-    });
+    .filter((jobItem) => Boolean(jobItem)) as JobItemExpanded[];
+  // .filter((jobItem) => {
+  //   return jobItem !== undefined;
+  // });
   const isLoading = results.some((result) => result.isLoading);
   return {
     jobItems,
