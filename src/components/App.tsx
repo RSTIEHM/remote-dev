@@ -9,9 +9,9 @@ import Sidebar, { SidebarTop } from "./Sidebar";
 import JobItemContent from "./JobItemContent";
 import ResultsCount from "./ResultsCount";
 import SortingControls from "./SortingControls";
-import JobList from "./JobList";
 import PaginationControls from "./PaginationControls";
 import { Toaster } from "react-hot-toast";
+import JobListSearch from "./JobListSearch";
 
 function App() {
   // ================== STATE =========
@@ -32,7 +32,8 @@ function App() {
             <ResultsCount />
             <SortingControls />
           </SidebarTop>
-          <JobList isLoading={isLoading} jobItems={jobItemsSortedAndSliced} />
+          <JobListSearch />
+
           <PaginationControls />
         </Sidebar>
         <JobItemContent />
